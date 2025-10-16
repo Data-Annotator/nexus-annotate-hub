@@ -108,7 +108,7 @@ const Hero = () => {
                   <img
                     src={https://i.postimg.cc/rpGFCtK0/image.jpg}
                     alt="Sivananthan Subbramaniam - Data Annotator"
-                    className="w-full h-full object-cover relative z-10"
+                    className="w-half h-half object-cover relative z-10"
                   />
                 </div>
                 
