@@ -5,18 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Form validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -30,22 +30,23 @@ const Contact = () => {
     // Simulate form submission
     toast({
       title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+      description: "Thank you for reaching out. I'll get back to you soon."
     });
 
     // Reset form
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      message: ""
+    });
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <section id="contact" className="py-24 bg-muted/30">
+  return <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -83,12 +84,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground font-poppins">Email</p>
-                      <a
-                        href="mailto:sivanantha@example.com"
-                        className="text-muted-foreground hover:text-secondary transition-colors font-poppins"
-                      >
-                        sivanantha@example.com
-                      </a>
+                      <a href="mailto:sivanantha@example.com" className="text-muted-foreground hover:text-secondary transition-colors font-poppins">sivananthansubbramaniam@gmail.com.com</a>
                     </div>
                   </div>
                 </Card>
@@ -100,14 +96,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground font-poppins">LinkedIn</p>
-                      <a
-                        href="https://www.linkedin.com/in/sivanantha"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-secondary transition-colors font-poppins"
-                      >
-                        linkedin.com/in/sivanantha
-                      </a>
+                      <a href="https://www.linkedin.com/in/sivanantha" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors font-poppins">www.linkedin.com/in/sivananthan-s-490160213</a>
                     </div>
                   </div>
                 </Card>
@@ -121,55 +110,24 @@ const Contact = () => {
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2 font-poppins">
                     Your Name
                   </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    className="font-poppins"
-                    required
-                  />
+                  <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} placeholder="John Doe" className="font-poppins" required />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2 font-poppins">
                     Your Email
                   </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    className="font-poppins"
-                    required
-                  />
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="font-poppins" required />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2 font-poppins">
                     Your Message
                   </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="font-poppins"
-                    required
-                  />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell me about your project..." rows={5} className="font-poppins" required />
                 </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins group"
-                  size="lg"
-                >
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins group" size="lg">
                   Send Message
                   <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Button>
@@ -178,8 +136,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
