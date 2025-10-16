@@ -90,25 +90,27 @@ const Hero = () => {
             <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
             <div className="absolute top-1/2 -right-8 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-float" style={{ animationDelay: "1.5s" }}></div>
             
-            {/* Profile Image Container with glassmorphism */}
+            {/* Profile Image Container with square mask */}
             <div className="relative w-full max-w-md mx-auto">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 via-primary/20 to-accent/30 rounded-[2.5rem] blur-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 via-primary/20 to-accent/30 rounded-3xl blur-2xl"></div>
               
-              {/* Main card */}
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl backdrop-blur-sm border border-secondary/20">
+              {/* Main card - Square with subtle rounding */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm border border-secondary/20">
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
                 
                 {/* Shimmer effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full animate-[slide-in-right_3s_ease-in-out_infinite]"></div>
                 
-                {/* Image */}
-                <img
-                  src={profileImage}
-                  alt="Sivanantha Subbramaniam - Data Annotator"
-                  className="w-full h-auto relative z-10"
-                />
+                {/* Square Image with aspect ratio */}
+                <div className="aspect-square w-full">
+                  <img
+                    src={profileImage}
+                    alt="Sivanantha Subbramaniam - Data Annotator"
+                    className="w-full h-full object-cover relative z-10"
+                  />
+                </div>
                 
                 {/* Bottom info card with glassmorphism */}
                 <div className="absolute bottom-6 left-6 right-6 bg-background/80 backdrop-blur-md rounded-2xl border border-border/50 p-4 shadow-lg">
