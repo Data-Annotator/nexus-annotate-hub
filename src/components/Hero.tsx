@@ -32,7 +32,7 @@ const Hero = () => {
               Hello, I'm{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in-scale">
-                  Sivanantha Subbramaniam
+                  Sivananthan Subbramaniam
                 </span>
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 blur-xl -z-10"></div>
               </span>
@@ -106,8 +106,8 @@ const Hero = () => {
                 {/* Square Image with aspect ratio */}
                 <div className="aspect-square w-full">
                   <img
-                    src={profileImage}
-                    alt="Sivanantha Subbramaniam - Data Annotator"
+                    src={https://i.postimg.cc/rpGFCtK0/image.jpg}
+                    alt="Sivananthan Subbramaniam - Data Annotator"
                     className="w-full h-full object-cover relative z-10"
                   />
                 </div>
