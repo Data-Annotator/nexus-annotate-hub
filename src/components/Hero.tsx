@@ -106,9 +106,9 @@ const Hero = () => {
                 {/* Square Image with aspect ratio */}
                 <div className="aspect-square w-full">
                   <img
-                    src={https://i.postimg.cc/rpGFCtK0/image.jpg}
+                    src="https://i.postimg.cc/rpGFCtK0/image.jpg"
                     alt="Sivananthan Subbramaniam - Data Annotator"
-                    className="w-half h-half object-cover relative z-10"
+                    className="w-full h-full object-cover relative z-10"
                   />
                 </div>
                 
