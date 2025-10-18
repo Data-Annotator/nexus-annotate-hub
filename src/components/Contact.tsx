@@ -75,9 +75,8 @@ const Contact = () => {
       // Send email using EmailJS
       const templateParams = {
         from_name: trimmedName,
-        from_email: trimmedEmail,
-        message: trimmedMessage,
-        to_email: "sivananthansubbramaniam@gmail.com.com"
+        reply_to: trimmedEmail,
+        message: trimmedMessage
       };
 
       await emailjs.send(
@@ -158,7 +157,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground font-poppins">Email</p>
-                      <a href="mailto:sivanantha@example.com" className="text-muted-foreground hover:text-secondary transition-colors font-poppins">sivananthansubbramaniam@gmail.com.com</a>
+                      <a href="mailto:sivananthansubbramaniam@gmail.com" className="text-muted-foreground hover:text-secondary transition-colors font-poppins">sivananthansubbramaniam@gmail.com</a>
                     </div>
                   </div>
                 </Card>
