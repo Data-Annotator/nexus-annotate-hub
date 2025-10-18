@@ -1,44 +1,118 @@
 import { useState } from "react";
-import { Mail, Linkedin, Send } from "lucide-react";
+import { Mail, Linkedin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
+import emailjs from "@emailjs/browser";
 const Contact = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
+    honeypot: "" // Spam prevention
   });
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Form validation
-    if (!formData.name || !formData.email || !formData.message) {
+    // Honeypot check - if filled, it's a bot
+    if (formData.honeypot) {
+      return;
+    }
+
+    // Rate limiting - prevent spam (30 second cooldown)
+    const now = Date.now();
+    if (now - lastSubmitTime < 30000) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all fields before submitting.",
+        title: "Please Wait",
+        description: "Please wait 30 seconds before sending another message.",
         variant: "destructive"
       });
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon."
-    });
+    // Trim inputs
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      message: ""
-    });
+    // Enhanced validation
+    if (!trimmedName || trimmedName.length < 2 || trimmedName.length > 100) {
+      toast({
+        title: "Invalid Name",
+        description: "Name must be between 2 and 100 characters.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail) || trimmedEmail.length > 255) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!trimmedMessage || trimmedMessage.length < 10 || trimmedMessage.length > 1000) {
+      toast({
+        title: "Invalid Message",
+        description: "Message must be between 10 and 1000 characters.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: trimmedName,
+        from_email: trimmedEmail,
+        message: trimmedMessage,
+        to_email: "sivananthansubbramaniam@gmail.com.com"
+      };
+
+      await emailjs.send(
+        "service_lgsm7ea", // Service ID
+        "template_59f4ocv", // Template ID
+        templateParams,
+        "ao3UqvdPVrWs_1tMc" // Public Key
+      );
+
+      // Success
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon."
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        honeypot: ""
+      });
+
+      // Update last submit time
+      setLastSubmitTime(now);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast({
+        title: "Failed to Send",
+        description: "Failed to send message. Please check your connection and try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -106,30 +180,85 @@ const Contact = () => {
             {/* Contact Form */}
             <Card className="p-8 animate-fade-in-scale border-border">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users, catches bots */}
+                <input
+                  type="text"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2 font-poppins">
                     Your Name
                   </label>
-                  <Input id="name" name="name" type="text" value={formData.name} onChange={handleChange} placeholder="John Doe" className="font-poppins" required />
+                  <Input 
+                    id="name" 
+                    name="name" 
+                    type="text" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    placeholder="John Doe" 
+                    className="font-poppins" 
+                    disabled={isSubmitting}
+                    required 
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2 font-poppins">
                     Your Email
                   </label>
-                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="font-poppins" required />
+                  <Input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    placeholder="john@example.com" 
+                    className="font-poppins" 
+                    disabled={isSubmitting}
+                    required 
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2 font-poppins">
                     Your Message
                   </label>
-                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell me about your project..." rows={5} className="font-poppins" required />
+                  <Textarea 
+                    id="message" 
+                    name="message" 
+                    value={formData.message} 
+                    onChange={handleChange} 
+                    placeholder="Tell me about your project..." 
+                    rows={5} 
+                    className="font-poppins" 
+                    disabled={isSubmitting}
+                    required 
+                  />
                 </div>
 
-                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins group" size="lg">
-                  Send Message
-                  <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                <Button 
+                  type="submit" 
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins group" 
+                  size="lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 animate-spin" size={18} />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                    </>
+                  )}
                 </Button>
               </form>
             </Card>
