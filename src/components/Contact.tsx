@@ -81,7 +81,7 @@ const Contact = () => {
 
       await emailjs.send(
         "service_k0xhwnx", // Service ID
-        "template_59f4ocv", // Template ID
+        "template_vyahqnu", // Template ID
         templateParams,
         "vd_fe7hoP2OxyJLEb" // Public Key
       );
