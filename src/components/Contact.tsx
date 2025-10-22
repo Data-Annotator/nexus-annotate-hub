@@ -169,7 +169,7 @@ const Contact = () => {
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="font-semibold text-foreground font-poppins mb-1">LinkedIn</p>
-                      <a href="https://www.linkedin.com/in/sivanantha" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors font-poppins text-sm break-all">www.linkedin.com/in/sivananthan-s-490160213</a>
+                      <a href="https://www.linkedin.com/in/sivananthan-s-490160213" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors font-poppins text-sm break-all">www.linkedin.com/in/sivananthan-s-490160213</a>
                     </div>
                   </div>
                 </Card>

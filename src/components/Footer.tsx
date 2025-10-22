@@ -36,7 +36,7 @@ const Footer = () => {
                   <Mail size={18} />
                   <span>sivananthansubbramaniam@gmail.com</span>
                 </a>
-                <a href="https://www.linkedin.com/in/sivanantha" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors font-poppins">
+                <a href="https://www.linkedin.com/in/sivananthan-s-490160213" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors font-poppins">
                   <Linkedin size={18} />
                   <span>LinkedIn Profile</span>
                 </a>
