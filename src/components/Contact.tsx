@@ -80,10 +80,10 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        "service_lgsm7ea", // Service ID
+        "service_k0xhwnx", // Service ID
         "template_59f4ocv", // Template ID
         templateParams,
-        "ao3UqvdPVrWs_1tMc" // Public Key
+        "vd_fe7hoP2OxyJLEb" // Public Key
       );
 
       // Success
