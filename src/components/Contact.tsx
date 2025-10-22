@@ -136,7 +136,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Info */}
             <div className="space-y-8 animate-fade-in">
               <div>
@@ -150,26 +150,26 @@ const Contact = () => {
               </div>
 
               <div className="space-y-4">
-                <Card className="p-6 hover:shadow-lg transition-all duration-300 border-border">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-secondary/10 p-3 rounded-xl">
+                <Card className="p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border-border">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-secondary/10 p-3 rounded-xl flex-shrink-0">
                       <Mail className="text-secondary" size={24} />
                     </div>
-                    <div>
-                      <p className="font-semibold text-foreground font-poppins">Email</p>
-                      <a href="mailto:sivananthansubbramaniam@gmail.com" className="text-muted-foreground hover:text-secondary transition-colors font-poppins">sivananthansubbramaniam@gmail.com</a>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold text-foreground font-poppins mb-1">Email</p>
+                      <a href="mailto:sivananthansubbramaniam@gmail.com" className="text-muted-foreground hover:text-secondary transition-colors font-poppins text-sm break-all">sivananthansubbramaniam@gmail.com</a>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6 hover:shadow-lg transition-all duration-300 border-border">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-secondary/10 p-3 rounded-xl">
+                <Card className="p-4 sm:p-6 hover:shadow-lg transition-all duration-300 border-border">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-secondary/10 p-3 rounded-xl flex-shrink-0">
                       <Linkedin className="text-secondary" size={24} />
                     </div>
-                    <div>
-                      <p className="font-semibold text-foreground font-poppins">LinkedIn</p>
-                      <a href="https://www.linkedin.com/in/sivanantha" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors font-poppins">www.linkedin.com/in/sivananthan-s-490160213</a>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold text-foreground font-poppins mb-1">LinkedIn</p>
+                      <a href="https://www.linkedin.com/in/sivanantha" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-secondary transition-colors font-poppins text-sm break-all">www.linkedin.com/in/sivananthan-s-490160213</a>
                     </div>
                   </div>
                 </Card>
@@ -177,7 +177,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-8 animate-fade-in-scale border-border">
+            <Card className="p-6 sm:p-8 animate-fade-in-scale border-border">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Honeypot field - hidden from users, catches bots */}
                 <input
