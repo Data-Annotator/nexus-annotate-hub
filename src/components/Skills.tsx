@@ -18,7 +18,7 @@ const Skills = () => {
     {
       icon: Wrench,
       title: "Tool Proficiency",
-      description: "Advanced skills in GT Studio, Kognic, and various annotation platforms",
+      description: "Advanced skills in Deepen.ai, Segments.ai, V7, CVAT, GT Studio, Kognic, QGIS & ArcGIS",
       color: "text-primary"
     },
     {
