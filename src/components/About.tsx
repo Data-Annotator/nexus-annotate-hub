@@ -61,7 +61,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-foreground font-poppins">
-                      B.Sc. Computer Science
+                      B.Sc. Costume Design and Fashion
                     </h4>
                     <p className="text-muted-foreground text-sm font-poppins">
                       Kaamadhenu Arts And Science College
