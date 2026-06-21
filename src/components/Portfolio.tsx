@@ -8,7 +8,7 @@ const Portfolio = () => {
       title: "Autonomous Vehicle Dataset Annotation",
       description: "Comprehensive annotation project for self-driving car systems involving precise object labeling and tracking across thousands of video frames. Labeled pedestrians, vehicles, traffic signs, and road infrastructure with bounding boxes and semantic segmentation.",
       achievements: [
-        "Annotated 50,000+ frames with 99.2% accuracy",
+        "1000k+ annotations completed with 99.2% accuracy",
         "Multi-class object detection and tracking",
         "Contributed to improved model performance by 15%"
       ],
