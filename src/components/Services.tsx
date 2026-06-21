@@ -31,7 +31,7 @@ const Services = () => {
       icon: Settings,
       title: "Tool Expertise",
       description: "Proficient in industry-leading annotation platforms including GT Studio, Kognic, and various custom annotation tools. Adaptable to any annotation workflow and quick to learn new tools as needed.",
-      features: ["GT Studio", "Kognic", "Custom Tools", "Workflow Optimization"]
+      features: ["GT Studio", "Kognic", "Deepen.AI", "Segments.AI"]
     }
   ];
 
