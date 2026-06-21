@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Bottom Bar */}
           <div className="border-t border-primary-foreground/20 pt-8 text-center">
             <p className="text-primary-foreground/70 font-poppins">
-              © {currentYear} Sivanantha Subbramaniam. All rights reserved.
+              © {currentYear} Sivananthan Subbramaniam. All rights reserved.
             </p>
           </div>
         </div>

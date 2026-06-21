@@ -124,7 +124,7 @@ const Resume = () => {
               </a>
             </div>
             <p className="text-muted-foreground leading-relaxed font-poppins">
-              Senior Quality Analyst with nearly 2 years of experience in LiDAR and 2D dataset
+              Senior Quality Analyst with nearly 2+ years of experience in LiDAR and 2D dataset
               validation for AI/ML training projects. Experienced in team supervision, escalation
               handling, and final dataset approvals. Consistently reviews 1800–1850 frames per day
               while maintaining strict quality benchmarks. Improved team productivity by 10% and
